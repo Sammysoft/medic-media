@@ -1,0 +1,229 @@
+{{> nav-body}}
+
+
+<section class="content home">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>Dashboard</h2>
+            <small class="text-muted">Welcome to Medic Media</small>
+        </div>
+        
+        <div class="row clearfix">
+           
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="info-box-4 hover-zoom-effect">
+                    <div class="icon"> <i class="zmdi zmdi-account col-blue"></i> </div>
+                    <div class="content">
+                        <div class="text">Patients</div>
+                          <ul id="myNames" style="display: none;">
+                        {{#each Patient}}
+                        <li id="li">{{#each this}}{{this.firstname}}{{/each}}</li>
+                        {{/each }}
+                        </ul>
+                
+                        <div class="number"><span id="Amt"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="info-box-4 hover-zoom-effect">
+                    <div class="icon"> <i class="zmdi zmdi-account col-green"></i> </div>
+                    <div class="content">
+                        <div class="text">Qualified Doctors</div>
+                        <ul id="myNames2" style="display: none;">
+                        {{#each Physician}}
+                        <li>{{#each this}}{{this.firstname}}{{/each}}</li>
+                        {{/each }}
+                        </ul>
+                
+                        <div class="number"><span id="Amt2"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="info-box-4 hover-zoom-effect">
+                    <div class="icon"> <i class="zmdi zmdi-balance col-blush"></i> </div>
+                    <div class="content">
+                        <div class="text">Clinics</div>
+                          <ul id="myNames3" style="display: none;">
+                        {{#each Clinic}}
+                        <li>{{#each this}}{{this.firstname}}{{/each}}</li>
+                        {{/each }}
+                        </ul>
+                
+                        <div class="number"><span id="Amt3"></span></div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+      
+      
+        <div class="row clearfix">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>Hospital Survey</h2>
+                        {{!-- <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
+                                <ul class="dropdown-menu float-right">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul> --}}
+                    </div>
+                    <div class="body">
+                        <canvas id="line_chart" height="70"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-sm-12 col-md-4 col-lg-4">
+                <div class="card">
+                    <div class="header">
+                        <h2>New Patient <small >18% High then last month</small></h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="stats-report">
+                            <div class="stat-item">
+                                <h5>Overall</h5>
+                                <b class="col-indigo">70.40%</b></div>
+                            <div class="stat-item">
+                                <h5>Montly</h5>
+                                <b class="col-indigo">25.80%</b></div>
+                            <div class="stat-item">
+                                <h5>Day</h5>
+                                <b class="col-indigo">12.50%</b></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class=" col-sm-12 col-md-4 col-lg-4">
+                <div class="card">
+                    <div class="header">
+                        <h2>Heart Surgeries <small>18% High then last month</small></h2>
+                        <ul class="header-dropdown">
+                         
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="stats-report">
+                            <div class="stat-item">
+                                <h5>Overall</h5>
+                                <b class="col-blue-grey">80.40%</b></div>
+                            <div class="stat-item">
+                                <h5>Montly</h5>
+                                <b class="col-blue-grey">13.00%</b></div>
+                            <div class="stat-item">
+                                <h5>Day</h5>
+                                <b class="col-blue-grey">9.50%</b></div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class=" col-sm-12 col-md-4 col-lg-4">
+                <div class="card">
+                    <div class="header">
+                        <h2>Medical Treatment <small>18% High then last month</small></h2>
+                        <ul class="header-dropdown">
+                            
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="stats-report">
+                            <div class="stat-item">
+                                <h5>Overall</h5>
+                                <b class="col-green">84.60%</b></div>
+                            <div class="stat-item">
+                                <h5>Montly</h5>
+                                <b class="col-green">15.40%</b></div>
+                            <div class="stat-item">
+                                <h5>Day</h5>
+                                <b class="col-green">5.10%</b></div>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+                </div>
+            </div>
+        </div>
+      
+        </div>
+	</div>
+</section>
+
+
+
+
+
+
+
+<script type="text/javascript">
+function studentsNumber(){
+    var li, ul, amount = 0;
+    ul = document.getElementById('myNames');
+    li = ul.getElementsByTagName('li');
+    for (i=0; i<li.length; i++){
+        amount += 1;
+        }
+    document.getElementById('Amt').innerHTML = `${amount}`;
+    
+    console.log(amount)
+}
+
+
+studentsNumber();
+
+
+
+
+
+
+
+function studentsNumber2(){
+    var li, ul, amount = 0;
+    ul = document.getElementById('myNames2');
+    li = ul.getElementsByTagName('li');
+    for (i=0; i<li.length; i++){
+        amount += 1;
+        }
+    document.getElementById('Amt2').innerHTML = `${amount}`;
+    
+    console.log(amount)
+}
+
+
+studentsNumber2();
+
+
+
+
+
+
+
+function studentsNumber3(){
+    var li, ul, amount = 0;
+    ul = document.getElementById('myNames3');
+    li = ul.getElementsByTagName('li');
+    for (i=0; i<li.length; i++){
+        amount += 1;
+        }
+    document.getElementById('Amt3').innerHTML = `${amount}`;
+    
+    console.log(amount)
+}
+
+
+studentsNumber3();
+
+</script>

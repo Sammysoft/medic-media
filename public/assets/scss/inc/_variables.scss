@@ -1,0 +1,40 @@
+//Colors
+$colors:(
+    red: #ec3b57,
+    pink: #E91E63,
+    purple: #ba3bd0,
+    deep-purple: #673AB7,
+    blue: #457fca,
+    cyan: #379c94,
+    green: #78b83e,
+    light-green: #8BC34A,
+    yellow: #ffe821,
+    orange: #FF9800,
+    deep-orange: #f83600,
+    grey: #9E9E9E,
+    blue-grey: #607D8B,
+    indigo: #3F51B5,
+    light-blue: #03A9F4,
+    teal: #009688,
+    lime: #CDDC39,
+    amber: #FFC107,
+    brown: #795548,
+    blush: #F15F79,
+    black: #000000,
+    white: #ffffff ) !default;
+
+$dark-grey: #30373e;
+$light-grey: #73797e;
+    
+//Fonts Family
+$navbar-font-family: 'Roboto', sans-serif;
+$sidebar-font-family: 'Roboto', sans-serif;
+
+// Breakpoints
+$break-xsmall: 			640px;
+$break-small: 			768px;
+$break-medium: 			992px;
+$break-1024: 			1024px;
+$break-large: 			1200px;
+$break-1280: 			1280px;
+$break-xlarge: 			1440px;

@@ -1,0 +1,66 @@
+﻿$blush-1: #e25985 !default;
+$blush-2: #f7bb97 !default;
+
+.theme-blush{
+
+    ::selection {
+        color: $white; 
+        background: $blush-1;
+    }
+    .bars {
+        color: $white;
+    }
+
+    .color-bg,
+    .morphsearch.open,
+    .wizard .steps .current a,
+    .profile-page .profile-sub-header .box-list ul li a:hover,
+    .fc .fc-toolbar,
+    .blog-page .single-blog-post .img-holder .date-box { background:linear-gradient(45deg, $blush-1, $blush-2); }
+
+    .navbar-brand {
+        color: $white;
+        &:hover,
+        &:active,
+        &:focus{
+            color: $white;
+        }
+    }
+
+    .nav > li > a {
+        color: $white;
+        &:hover,
+        &:focus{
+            background-color: transparent;
+        }
+    }
+    .nav .open > a {
+        background-color: transparent;
+        &:hover,
+        &:focus{
+            background-color: transparent;
+        }
+    }
+    .sidebar{
+        .menu{
+            .list{
+                li.active {
+                    background-color: transparent;
+
+                    >:first-child i,
+                    >:first-child span,{
+                        color: $blush-1;
+                    }
+                }
+                .toggled { background-color: transparent; }
+                .ml-menu { background-color: transparent; }
+            }
+        }
+        .legal .copyright a { color: $blush-2 !important; }
+        .morphsearch .dummy-column h2 { color: $blush-1; }
+    }
+
+    .nav-tabs>li>a:before,
+    .input-group .form-line:after,
+    .nav-tabs .nav-link.active { border-bottom: 2px solid $blush-2 !important; }
+}

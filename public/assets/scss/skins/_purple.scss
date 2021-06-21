@@ -1,0 +1,66 @@
+﻿$purple-1: #a27ce6 !default;
+$purple-2: #49c5b6 !default;
+
+.theme-purple{
+
+    ::selection {
+        color: $white; 
+        background: $purple-1;
+    }
+    .bars {
+        color: $white;
+    }
+
+    .color-bg,
+    .morphsearch.open,
+    .wizard .steps .current a,
+    .profile-page .profile-sub-header .box-list ul li a:hover,
+    .fc .fc-toolbar,
+    .blog-page .single-blog-post .img-holder .date-box { background:linear-gradient(45deg, $purple-1, $purple-2); }
+
+    .navbar-brand {
+        color: $white;
+        &:hover,
+        &:active,
+        &:focus{
+            color: $white;
+        }
+    }
+
+    .nav > li > a {
+        color: $white;
+        &:hover,
+        &:focus{
+            background-color: transparent;
+        }
+    }
+    .nav .open > a {
+        background-color: transparent;
+        &:hover,
+        &:focus{
+            background-color: transparent;
+        }
+    }
+    .sidebar{
+        .menu{
+            .list{
+                li.active {
+                    background-color: transparent;
+
+                    >:first-child i,
+                    >:first-child span,{
+                        color: $purple-1;
+                    }
+                }
+                .toggled { background-color: transparent; }
+                .ml-menu { background-color: transparent; }
+            }
+        }
+        .legal .copyright a { color: $purple-2 !important; }
+        .morphsearch .dummy-column h2 { color: $purple-1; }
+    }
+
+    .nav-tabs>li>a:before,
+    .input-group .form-line:after,
+    .nav-tabs .nav-link.active { border-bottom: 2px solid $purple-2 !important; }
+}

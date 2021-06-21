@@ -1,0 +1,421 @@
+
+
+<body class="theme-cyan">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-cyan">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>Please wait...</p>
+    </div>
+</div>
+
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+<!-- #Float icon -->
+<ul id="f-menu" class="mfbc-br mfb-zoomin" data-mfb-toggle="hover">
+    <li class="mfbc_wrap">
+        <a href="javascript:void(0);" class="mfbcb-main g-bg-cyan">
+            <i class="mfbcm-icon-resting zmdi zmdi-plus"></i>
+            <i class="mfbcm-icon-active zmdi zmdi-close"></i>
+        </a>
+        <ul class="mfbc_list">
+            <li><a href="/doctor/view-doctors" data-mfb-label="Clinic List" class="mfb-child bg-blue"><i class="zmdi zmdi-account-o mfbc_icon"></i></a></li>
+            <li><a href="/patients/view-patients" data-mfb-label="Patients List" class="mfb-child bg-orange"><i class="zmdi zmdi-account-o mfbc_icon"></i></a></li>
+            <li><a href="/Physicians/view-physicians" data-mfb-label="Physicians List" class="mfb-child bg-purple"><i class="zmdi zmdi-account-o mfbc_icon"></i></a></li>
+        </ul>
+    </li>
+</ul>
+
+<!-- Morphing Search  -->
+<div id="morphsearch" class="morphsearch">
+    <form class="morphsearch-form">
+        <div class="form-group m-0">
+            <input value="" type="search" placeholder="Explore Medic Media..." class="form-control morphsearch-input" />
+            <button class="morphsearch-submit" type="submit">Search</button>
+        </div>
+    </form>
+    
+    <span class="morphsearch-close"></span>
+</div>
+
+<!-- Top Bar -->
+<nav class="navbar clearHeader">
+    <div class="col-12">
+        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="/dashboard">Medic Media</a> </div>
+        <ul class="nav navbar-nav navbar-right">
+            
+    </div>
+</nav>
+<!-- #Top Bar -->
+<section> 
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar"> 
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="admin-image"> <img src="{{#each Admin}}{{this.imageurl}}{{/each }}" alt=""> </div>
+            <div class="admin-action-info"> <span>Welcome</span>
+           
+              
+                <h3>{{caption}} {{#each Admin}}{{this.username}}{{/each }}</h3>
+                
+          
+                <ul>
+                    <li><a target="blank" href="https://mail.google.com/mail/u/0/#inbox" title="Go to Inbox"><i class="zmdi zmdi-email"></i></a></li>
+                    <li><a href="/profile{{#each Admin}}/{{this._id}}"{{/each }} title="Go to Profile"><i class="zmdi zmdi-account"></i></a></li>
+                    {{!-- <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li> --}}
+                    <li><a href="/doctor/logout" title="sign out" ><i class="zmdi zmdi-sign-in"></i></a></li>
+                </ul>
+            </div>
+           
+        <!-- #User Info --> 
+   <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li class="header">MAIN NAVIGATION</li>
+                <li class="active open"><a href="/dashboard"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>                                               
+          
+
+               {{#if Clinics}}
+                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Physicians</span> </a>
+                    <ul class="ml-menu">
+                        <li> <a href="/Physicians/view-doctors">All Physicians</a></li>
+                        <li> <a href="/Physicians/add-doctor">Add Physician</a></li>
+                
+                    </ul>
+                </li>
+
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Patients</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/patients/view-patients">All Patients</a></li>
+                        <li><a href="/patients/add-patient">Add Patient</a></li>                       
+                    
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Appointments</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/view-appointment">View Appointments</a></li>
+                    </ul>
+                </li>
+                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-balance-wallet"></i><span>Teleconference</span> </a>
+                    <ul class="ml-menu">
+                        <li> <a href="https://jupiters.tech/demos/jupitermeet/" target="blank">Begin</a></li>
+                        
+                    </ul>
+                </li>
+               {{/if }}
+
+            {{#if Admins}}
+                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Physicians</span> </a>
+                    <ul class="ml-menu">
+                        <li> <a href="/Physicians/view-doctors">All Physicians</a></li>
+                        <li> <a href="/Physicians/add-doctor">Add Physician</a></li>
+                
+                    </ul>
+                </li>
+
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Clinic</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/clinics/view-clinics">All Clinics</a></li>
+                        <li><a href="/clinics/add-clinic">Add Clinic</a></li>                       
+                       
+                    </ul>
+                </li>
+
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Patients</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/patients/view-patients">All Patients</a></li>
+                        <li><a href="/patients/add-patient">Add Patient</a></li>                       
+                    
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Appointments</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/view-appointment">View Appointments</a></li>
+                    </ul>
+                </li>
+                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-balance-wallet"></i><span>Teleconference</span> </a>
+                    <ul class="ml-menu">
+                        <li> <a href="https://jupiters.tech/demos/jupitermeet/" target="blank">Begin</a></li>
+                        
+                    </ul>
+                </li>
+
+            {{/if }}
+
+               {{#if Physicians}}
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Patients</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/patients/view-patients">All Patients</a></li>
+                        <li><a href="/patients/add-patient">Add Patient</a></li>                       
+                      
+                    </ul>
+                </li>
+                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Appointments</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/view-appointment">View Appointments</a></li>
+                    </ul>
+                </li>
+                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-balance-wallet"></i><span>Teleconference</span> </a>
+                    <ul class="ml-menu">
+                        <li> <a href="https://jupiters.tech/demos/jupitermeet/" target="blank">Begin</a></li>
+                        
+                    </ul>
+                </li>
+               {{/if }}
+               {{#if Patients}}
+                    
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Clinic</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/doctor/view-doctors">All Physicians</a></li>
+                    </ul>
+                </li>    
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Appointments</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/appointment">Book Appointment</a></li>
+                    </ul>
+                </li>   
+               {{/if }}
+
+
+                
+          
+    
+    
+</section>
+<div class="color-bg"></div>
+<section class="content">
+    <div class="container-fluid">
+       
+        <div class="block-header">
+            <h2>Add Clinic to Hospital</h2>
+            <small class="text-muted">Welcome to Medic Media</small>
+        </div>
+        {{> message}}
+        <div class="row clearfix">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="card">
+					<div class="header">
+						<h2>Basic Information <small>Description text here...</small> </h2>
+						
+					</div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                {{!-- <form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">                                    <div class="dz-message"> --}}
+                                        <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>
+                                        <h3>Drop files here or click to upload.</h3>
+                                    <div class="fallback">
+                                        <input name="file" id="photo" type="file" multiple />
+                                        <button onclick="uploadImage()">Upload</button>
+                                    </div>
+                               {{!-- </form> --}}
+                            </div>
+
+                    <form action="/add-clinic" method="post">
+                    <div>
+                        <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="firstname" class="form-control" placeholder="First Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="lastname" class="form-control" placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <input type="hidden" name="imageurl" id="image" />
+
+                            <div class="col-sm-3">
+                                <div class="form-group drop-custum">
+                                    <select name="gender" class="form-control show-tick">
+                                        <option value="">-- Gender --</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="specialty" class="form-control" placeholder="Speciality">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="number" name="phonenumber" class="form-control" placeholder="Phone">
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="email" name="email" class="form-control" placeholder="Enter Your Email">
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-sm-6">
+                                <div class="form-group drop-custum">
+                                    <select  name="jobtype" class="form-control show-tick">
+                                        <option value="Clinics">Clinic</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+        <div class="row clearfix">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="header">
+						<h2>Clinic's Account Information <small>Description text here...</small> </h2>
+					</div>
+					<div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="username" class="form-control" placeholder="Username">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="password" name="password" class="form-control" placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="password" name="password2" class="form-control" placeholder="Confirm Password">
+                                    </div>
+                                </div>
+                            </div>
+     
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+        <div class="row clearfix">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="header">
+						<h2>Clinic Social Media Info <small>Description text here...</small> </h2>
+					</div>
+					<div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="facebook" class="form-control" placeholder="Facebook">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="twiter" class="form-control" placeholder="Twitter">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="linkedIn" class="form-control" placeholder="LinkedIn ">
+                                        <input type="hidden" name="appointment" value=" " class="form-control" placeholder="LinkedIn ">
+                                    </div>
+
+                                </div>
+                            </div>
+                           
+                        </div>
+                         <div class="col-sm-12">
+                                <button type="submit" class="btn btn-raised g-bg-cyan">Submit</button>
+                                <button  class="btn btn-raised">Cancel</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+				</div>
+			</div>
+		</div>
+    </div>
+</section>
+
+
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAGhDbUX2tkyjo-nHULOzBgg48Jq7H5nTQ",
+    authDomain: "medics-media.firebaseapp.com",
+    projectId: "medics-media",
+    storageBucket: "medics-media.appspot.com",
+    messagingSenderId: "938738973743",
+    appId: "1:938738973743:web:f918895d7aea7046859ada",
+    measurementId: "G-TMVX7RP0GW"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  function uploadImage(){
+      const ref = firebase.storage().ref();
+
+      const file = document.querySelector('#photo').files[0]
+
+      const name = new Date() + '-' + file.name
+
+      const metadata = {
+          contentType: file.type
+      }
+
+      const task = ref.child(name).put(file, metadata)
+      task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+            console.log(url)
+            alert('Image upload successful')
+            document.querySelector("#image").value = url
+           
+        })
+  }
+</script>

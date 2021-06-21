@@ -1,0 +1,27 @@
+﻿.label {
+    @include border-radius(50px);
+    @extend .font-10;
+    color: $white;
+    border-radius: $border-radius-base;
+    padding: 5px 12px;
+    text-transform: uppercase;    
+}
+.label-primary {
+    background-color: $primary;
+}
+
+.label-success {
+    background-color: $success;
+}
+
+.label-info {
+    background-color: $info;
+}
+
+.label-warning {
+    background-color: $warning;
+}
+
+.label-danger {
+    background-color: $danger;
+}

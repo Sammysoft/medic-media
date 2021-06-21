@@ -1,0 +1,93 @@
+﻿body {
+    @include transition(all .5s ease-in-out);
+    background-color: $dark-grey;    
+    font-family: 'Roboto', Arial, Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+
+button,
+input,
+select,
+a {
+    outline: none !important;
+}
+
+.no-animate {
+    -o-transition-property: none !important;
+    -moz-transition-property: none !important;
+    -ms-transition-property: none !important;
+    -webkit-transition-property: none !important;
+    transition-property: none !important;
+    -o-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -o-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
+}
+
+section {
+    &.content {        
+        @include transition(all .3s ease-in-out);
+        @include border-radius(3px);
+        padding: 15px 10px;
+        background: #f3f3f3;
+        z-index: 9;
+        position: relative;        
+        margin:60px 15px 15px 250px;
+        box-shadow:1px 5px 20px rgba(0, 0, 0, 0.09);
+               
+    }
+}
+.g-bg-cyan{ background:linear-gradient(60deg, #09b9ac, #7dd1c1); color:#fff !important;}
+.g-bg-blue{background:linear-gradient(60deg, #00adef, #0094da); color:#fff !important;}
+.g-bg-gy{background:linear-gradient(60deg, #94d23b, #fcb711); color:#fff !important;}
+.g-bg-cgreen{background:linear-gradient(60deg, #16c99f, #12a682); color:#fff !important;}
+
+.carousel{
+    .glyphicon-chevron-right:before{
+        content:'\f2f5';
+        font-family: 'Material-Design-Iconic-Font';
+    }
+    .glyphicon-chevron-left:before{
+       content:'\f2f3';       
+       font-family: 'Material-Design-Iconic-Font'; 
+    }
+}
+
+.drop-custum{
+    border-bottom: 1px solid #ddd;
+    margin-top: 18px !important;
+    &.form-group{
+        margin-top: 0 !important;
+        border-color: #bdbdbd; 
+    }
+}
+
+@include max-screen($break-medium + 1px) {
+    .collapse.collapse-sm, .collapse.collapse-xs {
+        display: block;
+    }
+}
+@include max-screen($break-small) {
+    .hidden-sm-down{
+        display: none!important;
+    }
+}
+@include max-screen($break-medium) {
+    section{
+        &.content{
+           margin-left:5px !important;
+           margin-right:5px;
+           padding:0;
+        }
+    }
+    .hidden-md-down{
+        display: none!important;
+    }
+}

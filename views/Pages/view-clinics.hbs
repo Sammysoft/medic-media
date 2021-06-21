@@ -1,0 +1,42 @@
+
+{{> nav-body}}
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>All Clinics</h2>
+            <small class="text-muted">Welcome to Medic Media</small>
+        </div>
+        <div class="row clearfix">
+            {{#each Clinic}}
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card verified">                            
+                            <div class="thumb-xl member-thumb">
+                                <img src="{{#each this}}{{this.imageurl}}{{/each }}" style="height:150px; width:150px;" class="img-thumbnail rounded-circle" alt="profile-image">                               
+                            </div>
+
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">Dr. {{#each this}}{{this.username}}{{/each }}</h4>
+                                <p class="text-muted">{{#each this}}{{this.specialty}}{{/each }}<span> <a href="javascript:void(0);" class="text-pink">{{#each this}}{{this.firstname}} {{this.lastname}}{{/each}}</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">{{#each this}}{{this.phonenumber}}{{/each }}</p>                           
+                            <a href="/Profile{{#each this}}/{{this._id}}"{{/each }}  class="btn btn-raised btn-sm">View Profile</a><br/><br/><a href={{#each this}}"/delete/{{this._id}}"{{/each }} onclick="return confirm('Are you sure to delete this record?...')" class="edit"><i class="zmdi zmdi-delete"></i></a>
+                            <ul class="social-links list-inline m-t-10">
+                                {{!-- <li><a title="facebook" href="javascript:void(0);"><i class="zmdi zmdi-facebook"></i></a></li>
+                                <li><a title="twitter" href="javascript:void(0);" ><i class="zmdi zmdi-twitter"></i></a></li>
+                                <li><a title="instagram" href="javascript:void(0);" ><i class="zmdi zmdi-instagram"></i></a></li> --}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+              {{/each }}
+           
+        
+    </div>
+</section>

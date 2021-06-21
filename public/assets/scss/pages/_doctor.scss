@@ -1,0 +1,46 @@
+﻿.member-card{
+    @extend .align-center;
+    
+    .header-dropdown{
+        @extend .padding-0;
+        @extend .margin-0;
+        display: inline-block;
+        position: absolute;
+        right: 30px;        
+        li{
+            a{
+                padding: 10px 15px;
+            }
+        }
+    }
+
+    .text-pink{
+        display:block;
+    }
+    .member-thumb{        
+        position:relative;
+        display:inline-block;
+        
+        img{
+            padding:4px;
+            border:1px solid $grey-300;            
+        }
+        i{
+            position:absolute;
+            bottom: 0;
+            right: 30px;
+        }
+    }    
+    .social-links{
+     @extend .m-b-0;
+
+        li{
+            display: inline-block;
+            a{
+                @extend .align-center;
+                width: 30px;
+                display: block;                
+            }
+        }
+    }
+}

@@ -1,0 +1,100 @@
+﻿.authentication {
+    @extend .p-l-0;
+    background-color: $cyan;
+    max-width: 360px;
+    margin: 5% auto;
+    overflow-x: hidden;
+    background-image: url('../images/bg-1.jpg');
+    background-size: cover;
+    background-position: top center;
+
+    .theme-bg {
+        background: linear-gradient(45deg, #49cdd0, #ab9ae5);
+        height: 150px;
+        position: absolute;
+        width: 50%;
+        left: 0;
+        top: 144px;
+        z-index: -1;
+    }
+    .card {
+        @include border-radius(5px);
+        @include transition(all .3s ease-in-out);
+        background: $white;
+        position: relative;        
+        padding: 20px 0;
+        box-sizing: border-box;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+        .title {
+            @extend .font-22;
+            font-weight: $font-weight-700;
+            position: relative;
+            z-index: 1;
+            border-left: 5px solid #01c0c8;
+            margin: 0 0 25px;
+            padding: 10px 0 10px 30px;
+            color: #01c0c8;            
+            text-transform: uppercase;
+
+            span {
+                @extend .font-13;
+                @extend .margin-0;
+                font-weight: $font-weight-400;
+                color: $grey-800;
+                display: block;                
+                line-height: 18px;
+                
+            }
+            .msg {
+                @extend .font-13;
+                @extend .m-t-10;
+                @extend .padding-0;
+                font-weight: $font-weight-400;
+                color: $grey-600;
+                display: block;
+                line-height: 18px;
+                text-transform: none;
+            }
+        }
+    }
+    .locked{
+        .thumb {
+            float: left;
+            margin-left: 20px;
+            margin-right: 20px;
+
+            .media-object {
+                @include border-radius(5px);
+                width: 50px;
+            }
+        }
+        .media-heading{
+            display: block;
+            strong {
+                font-weight: $font-weight-400;
+                                
+            }
+        }
+    }
+    .card-top:first-child {
+        @extend .margin-0;
+        background: $grey-50;
+        height: 10px;
+        border-radius: 5px 5px 0 0;
+        margin: 0 10px;
+    }
+    .form-line{
+        .search-btn {
+            display: inline-block;
+            position: absolute;
+            right: 50px;
+            top: 0;
+
+            button {
+                @include box-shadow(none);
+                @extend .margin-0;
+            }
+        }
+    }
+}

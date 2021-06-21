@@ -1,0 +1,224 @@
+
+{{> nav-body}}
+<section class="content">
+    <div class="container-fluid">
+       
+        <div class="block-header">
+            <h2>Add a Patient to Hospital</h2>
+            <small class="text-muted">Welcome to Medic Media</small>
+        </div>
+        {{> message}}
+        <div class="row clearfix">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="card">
+					<div class="header">
+						<h2>Basic Information <small>Description text here...</small> </h2>
+					</div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                     <form action="/signup" method="post">
+                    <div>
+                     <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="firstname" class="form-control" placeholder="First Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                         <input type="hidden" name="imageurl" id="image" />
+                                        <input type="text" name="lastname" class="form-control" placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="dateofbirth" class="datepicker form-control" placeholder="Date of Birth">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group drop-custum">
+                                    <select name="gender" class="form-control show-tick">
+                                        <option value="">-- Gender --</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="number" name="phonenumber" class="form-control" placeholder="Phone">
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="email" name="email" class="form-control" placeholder="Enter Your Email">
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-sm-6">
+                                <div class="form-group drop-custum">
+                                    <select  name="jobtype" class="form-control show-tick">
+                                        <option  value="">-- User Type --</option>
+                                        <option value="Patient">Patient</option>
+                                      
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                            
+ 
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+        <div class="row clearfix">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="header">
+						<h2>Patient's Account Information <small>Description text here...</small> </h2>
+						
+					</div>
+					<div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="username" class="form-control" placeholder="Username">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="password" name="password" class="form-control" placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="password" name="password2" class="form-control" placeholder="Confirm Password">
+                                    </div>
+                                </div>
+                            </div>
+     
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+        <div class="row clearfix">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="header">
+						<h2>Patient Social Media Info <small>Description text here...</small> </h2>
+						
+					</div>
+					<div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="facebook" class="form-control" placeholder="Facebook">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="twiter" class="form-control" placeholder="Twitter">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="linkedIn" class="form-control" placeholder="LinkedIn ">
+                                    </div>
+                                    <input type="hidden" name="comment.date" value="." class="form-control">
+                                    <input type="hidden" name="comment.body" value="." class="form-control">
+                                </div>
+                                    
+
+                            </div>
+                           
+                        </div>
+                         <div class="col-sm-12">
+                                <button type="submit" class="btn btn-raised g-bg-cyan">Submit</button>
+                                <button  class="btn btn-raised">Cancel</button>
+                            </div>
+                                    </div>
+                        </form>
+                    </div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+    </div>
+</section>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAGhDbUX2tkyjo-nHULOzBgg48Jq7H5nTQ",
+    authDomain: "medics-media.firebaseapp.com",
+    projectId: "medics-media",
+    storageBucket: "medics-media.appspot.com",
+    messagingSenderId: "938738973743",
+    appId: "1:938738973743:web:f918895d7aea7046859ada",
+    measurementId: "G-TMVX7RP0GW"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  function uploadImage(){
+      const ref = firebase.storage().ref();
+
+      const file = document.querySelector('#photo').files[0]
+
+      const name = new Date() + '-' + file.name
+
+      const metadata = {
+          contentType: file.type
+      }
+
+      const task = ref.child(name).put(file, metadata)
+      task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+            console.log(url)
+            alert('Image upload successful')
+            document.querySelector("#image").value = url
+           
+        })
+  }
+</script>

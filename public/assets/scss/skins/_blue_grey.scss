@@ -1,0 +1,66 @@
+﻿$blue-grey-1: #385871 !default;
+$blue-grey-2: #4f7ca0 !default;
+
+.theme-blue-grey{
+
+    ::selection {
+        color: $white; 
+        background: $blue-grey-1;
+    }
+    .bars {
+        color: $white;
+    }
+
+    .color-bg,
+    .morphsearch.open,
+    .wizard .steps .current a,
+    .profile-page .profile-sub-header .box-list ul li a:hover,
+    .fc .fc-toolbar,
+    .blog-page .single-blog-post .img-holder .date-box { background:linear-gradient(45deg, $blue-grey-1, $blue-grey-2); }
+
+    .navbar-brand {
+        color: $white;
+        &:hover,
+        &:active,
+        &:focus{
+            color: $white;
+        }
+    }
+
+    .nav > li > a {
+        color: $white;
+        &:hover,
+        &:focus{
+            background-color: transparent;
+        }
+    }
+    .nav .open > a {
+        background-color: transparent;
+        &:hover,
+        &:focus{
+            background-color: transparent;
+        }
+    }
+    .sidebar{
+        .menu{
+            .list{
+                li.active {
+                    background-color: transparent;
+
+                    >:first-child i,
+                    >:first-child span,{
+                        color: $blue-grey-1;
+                    }
+                }
+                .toggled { background-color: transparent; }
+                .ml-menu { background-color: transparent; }
+            }
+        }
+        .legal .copyright a { color: $blue-grey-2 !important; }
+        .morphsearch .dummy-column h2 { color: $blue-grey-1; }
+    }
+
+    .nav-tabs>li>a:before,
+    .input-group .form-line:after,
+    .nav-tabs .nav-link.active { border-bottom: 2px solid $blue-grey-2 !important; }
+}

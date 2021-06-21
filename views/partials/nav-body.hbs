@@ -1,0 +1,181 @@
+
+
+<body class="theme-cyan">
+
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+<!-- #Float icon -->
+<ul id="f-menu" class="mfbc-br mfb-zoomin" data-mfb-toggle="hover">
+    <li class="mfbc_wrap">
+        <a href="javascript:void(0);" class="mfbcb-main g-bg-cyan">
+            <i class="mfbcm-icon-resting zmdi zmdi-plus"></i>
+            <i class="mfbcm-icon-active zmdi zmdi-close"></i>
+        </a>
+        <ul class="mfbc_list">
+            {{!-- <li><a href="/doctor/view-doctors" data-mfb-label="Clinic List" class="mfb-child bg-blue"><i class="zmdi zmdi-account-o mfbc_icon"></i></a></li> --}}
+            <li><a href="/patients/view-patients" data-mfb-label="Patients List" class="mfb-child bg-orange"><i class="zmdi zmdi-account-o mfbc_icon"></i></a></li>
+            <li><a href="/Physicians/view-doctors" data-mfb-label="Physicians List" class="mfb-child bg-purple"><i class="zmdi zmdi-account-o mfbc_icon"></i></a></li>
+        </ul>
+    </li>
+</ul>
+
+<!-- Morphing Search  -->
+<div id="morphsearch" class="morphsearch">
+    <form class="morphsearch-form">
+        <div class="form-group m-0">
+            <input value="" type="search" placeholder="Explore Medic Media..." class="form-control morphsearch-input" />
+            <button class="morphsearch-submit" type="submit">Search</button>
+        </div>
+    </form>
+    
+    <span class="morphsearch-close"></span>
+</div>
+
+<!-- Top Bar -->
+<nav class="navbar clearHeader">
+    <div class="col-12">
+        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="/dashboard">Medic Media</a> </div>
+        <ul class="nav navbar-nav navbar-right">
+            
+    </div>
+</nav>
+<!-- #Top Bar -->
+<section> 
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar"> 
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="admin-image"> <img src="{{#each Admin}}{{this.imageurl}}{{/each }}" alt=""> </div>
+            <div class="admin-action-info"> <span>Welcome</span>
+           
+              
+                <h3>{{caption}} {{#each Admin}}{{this.username}}{{/each }}</h3>
+                
+          
+                <ul>
+                    <li><a target="blank" href="https://mail.google.com/mail/u/0/#inbox" title="Go to Inbox"><i class="zmdi zmdi-email"></i></a></li>
+                    <li><a href="/profile{{#each Admin}}/{{this._id}}"{{/each }} title="Go to Profile"><i class="zmdi zmdi-account"></i></a></li>
+                    {{!-- <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li> --}}
+                    <li><a href="/doctor/logout" title="sign out" ><i class="zmdi zmdi-sign-in"></i></a></li>
+                </ul>
+            </div>
+           
+        <!-- #User Info --> 
+   <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li class="header">MAIN NAVIGATION</li>
+                <li class="active open"><a href="/dashboard"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>                                               
+          
+
+               {{#if Clinics}}
+                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Physicians</span> </a>
+                    <ul class="ml-menu">
+                        <li> <a href="/Physicians/view-doctors">All Physicians</a></li>
+                        <li> <a href="/Physicians/add-doctor">Add Physician</a></li>
+                
+                    </ul>
+                </li>
+
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Patients</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/patients/view-patients">All Patients</a></li>
+                        <li><a href="/patients/add-patient">Add Patient</a></li>                       
+                    
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Appointments</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/view-appointment">View Appointments</a></li>
+                    </ul>
+                </li>
+                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-balance-wallet"></i><span>Teleconference</span> </a>
+                    <ul class="ml-menu">
+                        <li> <a href="https://jupiters.tech/demos/jupitermeet/" target="blank">Begin</a></li>
+                        
+                    </ul>
+                </li>
+               {{/if }}
+
+            {{#if Admins}}
+                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Physicians</span> </a>
+                    <ul class="ml-menu">
+                        <li> <a href="/Physicians/view-doctors">All Physicians</a></li>
+                        <li> <a href="/Physicians/add-doctor">Add Physician</a></li>
+                
+                    </ul>
+                </li>
+
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Clinic</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/clinics/view-clinics">All Clinics</a></li>
+                        <li><a href="/clinics/add-clinic">Add Clinic</a></li>                       
+                       
+                    </ul>
+                </li>
+
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Patients</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/patients/view-patients">All Patients</a></li>
+                        <li><a href="/patients/add-patient">Add Patient</a></li>                       
+                    
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Appointments</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/view-appointment">View Appointments</a></li>
+                    </ul>
+                </li>
+                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-balance-wallet"></i><span>Teleconference</span> </a>
+                    <ul class="ml-menu">
+                        <li> <a href="https://jupiters.tech/demos/jupitermeet/" target="blank">Begin</a></li>
+                        
+                    </ul>
+                </li>
+
+            {{/if }}
+
+               {{#if Physicians}}
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Patients</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/patients/view-patients">All Patients</a></li>
+                        <li><a href="/patients/add-patient">Add Patient</a></li>                       
+                      
+                    </ul>
+                </li>
+                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Appointments</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/view-appointment">View Appointments</a></li>
+                    </ul>
+                </li>
+                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-balance-wallet"></i><span>Teleconference</span> </a>
+                    <ul class="ml-menu">
+                        <li> <a href="https://jupiters.tech/demos/jupitermeet/" target="blank">Begin</a></li>
+                        
+                    </ul>
+                </li>
+               {{/if }}
+               {{#if Patients}}
+                    
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Physicians</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/doctor/view-doctors">All Physicians</a></li>
+                    </ul>
+                </li>    
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Appointments</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/appointment">Book Appointment</a></li>
+                    </ul>
+                </li>   
+               {{/if }}
+
+
+                
+          
+    
+    
+</section>
+<div class="color-bg"></div>
+
+

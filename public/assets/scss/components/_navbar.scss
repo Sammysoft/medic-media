@@ -1,0 +1,168 @@
+.n-top{z-index:7 !important;}
+
+.navbar {
+    @include border-radius(0);
+    @include box-shadow(none);
+    font-family: $navbar-font-family;
+    border: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:12;
+    width: 100%;
+    padding:9px;
+    background-color:transparent;
+
+    .navbar-brand {
+        @include three-dots-overflow();
+    }
+    .navbar-toggle {
+        color: $white;
+        text-decoration: none;        
+        width: 20px;
+        height: 20px;
+        margin-top: -4px;
+        margin-right: 17px;
+
+        &:before {
+            @extend .font-26;
+            content: '\E8D5';
+            font-family: 'Material Icons';
+        }
+    }
+    .navbar-collapse {
+        &.in {
+            overflow: visible;
+        }
+    }
+}
+.ls-closed {
+    .sidebar {
+        margin-left:-300px;
+        background: $blue-grey-800;
+        top: 0;
+        
+        .info-container{
+             .name{
+                color: $grey-800 !important; 
+             }
+        }
+    }
+    section.content {
+        margin-left: 15px;
+    }
+    .bars {
+        &:after,
+        &:before {
+            @include transform(scale(0));
+            @include transition(all .3s ease-in-out);
+            @extend .m-r-10;
+            @extend .font-24;
+            font-family: 'Material Icons';
+            position: absolute;
+            top:4px;
+            left:4px;
+        }
+
+        &:before {
+            content: '\f313';
+            @include transform(scale(1));
+            font-family:Material-Design-Iconic-Font;
+        }
+
+        &:after {
+            content: '\f2ea';
+            @include transform(scale(0));
+            font-family:Material-Design-Iconic-Font;
+        }
+    }
+    .navbar-brand {
+        margin-left: 30px;
+    }
+}
+.overlay-open {
+    .bars {
+        &:before {
+            @include transform(scale(0));
+        }
+
+        &:after {
+            @include transform(scale(1));
+        }
+    }
+}
+.navbar-header {
+    padding:0;
+    display: inline-block;
+
+    .bars {
+        float: left;
+        text-decoration: none;
+    }
+}
+.navbar-nav {
+    margin-right: 0;
+    float: right;
+    flex-direction: unset;
+    > li {
+
+        > a {
+            padding: 7px 12px 5px 12px;
+            display: inline-block;
+            
+            &::after{
+                display: none;
+            }
+            
+        }
+        .dropdown-menu{
+            position: absolute;
+        }
+    }
+}
+.label-count {
+    @include border-radius(3px);
+    @extend .font-10;
+    background-color: $black;
+    position: absolute;
+    top: -3px;
+    right: -2px;    
+    line-height: 15px;    
+    padding: 0 4px;    
+}
+
+@each $key, $val in $colors {
+    .col-#{$key} {
+        .navbar {
+            @include navbar-link-color($white, #000, .95);
+        }
+    }
+}
+.color-bg{
+    @extend .padding-0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height:239px;    
+}
+@include max-screen($break-small) {
+   .overlay-open {
+        .sidebar{
+            .user-info{
+                
+                height: 105px;
+                
+                .quick-stats{
+                    display:none;
+                }
+            }
+            
+            .legal{
+            
+                padding:5px 15px;
+            }
+        }
+    }
+}

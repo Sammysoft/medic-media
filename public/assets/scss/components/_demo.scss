@@ -1,0 +1,339 @@
+//BUTTONS
+.demo-button-sizes {
+    .btn {
+        margin-bottom: 5px;
+    }
+}
+.icon-button-demo {
+    button {
+        margin-right: 5px;
+        margin-bottom: 12px;
+    }
+}
+.button-demo {
+    ul {
+        padding-left: 0;
+
+        li {
+            list-style: none;
+            padding-left: 0;
+            display: inline-block;
+            margin-right: 7px;
+
+            .btn {
+                display: block;
+                min-width: 175px;
+            }
+        }
+    }
+
+    .btn {
+        margin-right: 8px;
+        margin-bottom: 13px;
+        min-width: 120px;
+    }
+}
+.demo-button-groups {
+    .btn-group {
+        margin-right: 10px;
+    }
+}
+.demo-button-toolbar {
+    .btn-toolbar {
+        float: left;
+        margin-right: 25px;
+    }
+}
+.demo-button-nesting {
+    > .btn-group {
+        margin-right: 15px;
+    }
+}
+.demo-single-button-dropdowns {
+    > .btn-group {
+        margin-right: 10px;
+    }
+}
+.demo-splite-button-dropdowns {
+    > .btn-group {
+        margin-right: 10px;
+    }
+}
+.demo-dropup {
+    .dropup {
+        margin-right: 10px;
+    }
+}
+//COLOR BOX
+.demo-color-box {
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    @include border-radius(3px);
+
+    .color-name {
+        @extend .font-16;
+        margin-bottom: 5px;
+    }
+
+    .color-code,
+    .color-class-name {
+        @extend .font-13;
+    }
+}
+//IMAGES
+.demo-image-copyright {
+    text-align: right;
+    font-style: italic;
+    @extend .font-12;
+    color: $grey-600;
+    margin: 5px 0 10px 0;
+
+    a {
+        font-weight: $font-weight-700;
+        color: #555 !important;
+    }
+}
+//GOOGLE MATERIAL DESIGN ICON
+.demo-icon-container {
+    .demo-google-material-icon {        
+        padding: 10px;
+        margin: 2px;
+        border: 1px solid $grey-200;
+        display: flex;
+        align-items: center;
+
+        .icon-name {
+            position: relative;
+        }
+
+        .material-icons {
+            width: 30px;
+            font-size: 20px;
+        }
+    }
+}
+//PRELOADERS
+.demo-preloader {
+    .preloader {
+        margin-right: 10px;
+    }
+}
+//ION RANGE SLIDER
+.irs-demo {
+    margin-bottom: 40px;
+
+    .irs {
+        margin-top: 15px;
+    }
+}
+//RIGHT SIDEBAR
+.right-sidebar {
+    .nav-tabs{
+        @extend .margin-0;
+        padding:0;
+        background:transparent;
+        
+        >li{
+            width:33%;
+            left:0;
+            margin-bottom:0;
+                        
+            a{
+              &:hover{ color:#444 !important ;}
+             }
+                       
+            &:last-child{width:33%;}
+            &:first-child{width:33%;}
+        }
+    }
+    
+    .nav-tabs + .tab-content {
+        padding: 0;
+    }
+
+    p {
+        margin: 20px 15px 15px 15px;
+        font-weight: $font-weight-700;
+        text-align: left;
+    }
+    
+    #chat{
+        padding:15px;
+        
+        ul {
+            
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        
+
+        >li {
+            margin-bottom: 0;
+    		padding: 10px 10px 10px 0;
+
+          &:last-child {
+            margin-bottom: 30px;
+          }		 
+			a{
+                width:40px;
+				img{
+					border-radius:50px;
+                    width:100%;
+				}
+			}
+          .media {
+            position: relative;
+            @extend .margin-0;
+
+            .unread {
+              position: absolute;
+              left: 22px;
+            }
+
+            .media-body {
+              padding-top:0px;
+              padding-bottom:0px;
+              position: relative;
+              margin:0 0 0 10px;;
+              
+
+              .name{                               
+                color: $dark-grey;
+                margin:0px;
+                display: block;
+				font-size:15px;
+              }
+              .message {
+                @extend .font-13;
+                color: $light-grey;
+                display: inline-block;
+                width: 130px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+
+                i {
+                  @extend .font-14;
+                }
+              }
+              .status {
+                position: absolute;
+                right: 0px;
+                top: 4px;
+                width: 5px;
+                height: 5px;
+                padding: 0;                
+                display: inline-block;
+                min-width: inherit;
+              }              
+            }
+          }
+
+          &.online {
+            .status {
+              background: $green;
+            }
+          }
+          &.busy {
+            .status {
+              background: $red;
+            }
+          }
+          &.offline {
+            .status {
+              background: $orange;
+            }
+          }
+        }
+
+
+        &.settings {
+          >li {
+
+            .form-group {
+              .control-label {
+                margin-bottom: 15px;
+                color: $dark-grey;                
+                line-height: 22px;
+
+                .onoffswitch {
+                  right: -35px;
+                }
+              }
+            }
+          }
+        }
+      }
+        
+    }
+
+    #settings {
+        .setting-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+
+            li {
+                padding: 15px;
+                position: relative;
+                border-top: 1px solid #eee;
+
+                .switch {
+                    position: absolute;
+                    top: 15px;
+                    right: 5px;
+                }
+            }
+        }
+    }
+}
+.demo-choose-skin {
+    list-style: none;
+    padding-left: 0;
+    overflow-y: hidden;
+
+    li {
+        border-bottom: 1px solid #eee;
+        padding: 10px 10px 4px 10px;
+        position: relative;
+        cursor: pointer;
+
+        &.active {
+            background-color: #eee;
+
+            &:after {
+                font-family: 'Material-Design-Iconic-Font';
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                content: '\f26b';
+                @extend .font-18;
+                font-weight: $font-weight-700;
+            }
+        }
+
+        &:hover {
+            background-color: #eee;
+        }
+
+        div {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            @include border-radius(3px);
+        }
+
+        span {
+            position: relative;
+            bottom: 7px;
+            left: 5px;
+        }
+    }
+
+    @each $key, $val in $colors {
+        .#{$key} {
+            background-color: $val;
+        }
+    }
+}

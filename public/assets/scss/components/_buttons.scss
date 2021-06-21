@@ -1,0 +1,134 @@
+﻿.btn {
+    &:focus {
+        outline: none !important;
+    }
+}
+
+.btn-circle {
+    @include border-radius(50%);
+    @extend .padding-0;
+    border: none;
+    outline: none !important;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;    
+
+    i {
+        @extend .font-18;
+        position: relative;
+        left: -1px;
+    }
+}
+
+.btn-link {
+    @include transition(all .5s ease-in-out);
+    font-weight: $font-weight-700;
+    color: $grey-800;
+
+    &:active,
+    &:focus {
+        text-decoration: none;
+        color: $grey-800;
+    }
+
+    &:hover {
+        text-decoration: none;
+        color: $grey-800;
+        background-color: $grey-400;
+    }
+}
+
+.btn-circle-lg {
+    @include border-radius(50% !important);
+    border: none;
+    outline: none !important;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;    
+
+    i {
+        font-size: 26px !important;
+        position: relative !important;
+        left: 0px !important;
+        top: 6px !important;
+    }
+}
+
+.btn:not(.btn-link):not(.btn-circle) {    
+    @include border-radius(2px);
+    box-shadow: 0 2px 5px rgba($black,.16),0 2px 10px rgba($black,.12);
+    border: none;    
+    outline: none;
+
+    &:hover {
+        outline: none;
+    }
+
+    i {        
+        position: relative;
+        top: 1px;
+    }
+}
+
+.btn-warning,
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning:focus {
+    background-color: $warning !important;
+}
+
+.btn-danger,
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger:focus {
+    background-color: $danger !important;
+}
+
+.btn-info,
+.btn-info:hover,
+.btn-info:active,
+.btn-info:focus {
+    background-color: $info !important;
+}
+
+.btn-success,
+.btn-success:hover,
+.btn-success:active,
+.btn-success:focus {
+    background-color: $success !important;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+    background-color: $primary !important;
+}
+
+.btn-default,
+.btn-default:hover,
+.btn-default:active,
+.btn-default:focus {
+    background-color: $white !important;
+}
+
+.btn-group,
+.btn-group-vertical {
+    box-shadow: 0 2px 5px rgba($black, 0.16), 0 2px 10px rgba($black, 0.12);
+
+    .btn {
+        @include border-radius(0);
+        box-shadow: none !important;        
+
+        .caret {
+            position: relative;
+            bottom: 1px;
+        }
+    }
+    .btn-group {
+        box-shadow: none !important;
+    }
+    .btn + .dropdown-toggle {
+        border-left: 1px solid rgba($black,0.08) !important;
+    }
+}

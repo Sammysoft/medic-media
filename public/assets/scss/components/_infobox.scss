@@ -1,0 +1,429 @@
+﻿.info-box {
+    @include transition(all .5s ease-in-out);
+    @include box-shadow(none);
+    background-color: $white;
+    height: 80px;
+    display: flex;
+    cursor: default;    
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 1px solid $grey-100;
+
+    &:hover{
+        box-shadow: 0 8px 10px 1px rgba($black,0.14), 0 3px 14px 2px rgba($black,0.12), 0 5px 5px -3px rgba($black,0.2);
+        transition: all 150ms linear;
+    }
+    .icon {
+        @extend .align-center;
+        display: inline-block;        
+        background-color: rgba($black,0.12);
+        width:70px;
+
+        i {
+            color: $white;
+            font-size: 28px;
+            line-height: 80px;
+        }
+        .chart.chart-bar {
+            height: 100%;
+            line-height: 100px;
+
+            canvas {
+                vertical-align: baseline !important;
+            }
+        }
+        .chart.chart-pie {
+            height: 100%;
+            line-height: 123px;
+
+            canvas {
+                vertical-align: baseline !important;
+            }
+        }
+        .chart.chart-line {
+            height: 100%;
+            line-height: 115px;
+
+            canvas {
+                vertical-align: baseline !important;
+            }
+        }
+    }
+    .content {
+        display: inline-block;
+        padding: 7px 10px;
+
+        .text {
+            @extend .font-12;
+            margin: 5px 0;
+            color: $grey-800;
+        }
+
+        .number {
+            @extend .font-20;
+            @extend .m-t-0;
+            font-weight: $font-weight-400;
+            color: $grey-800;
+        }
+    }
+    &.hover-zoom-effect {
+        .icon {
+            overflow: hidden;
+
+            i {
+                @include transition(all .3s ease);
+            }
+        }
+        &:hover {
+            .icon {
+                i {
+                    opacity: 0.4;
+                    @include transform(rotate(-32deg) scale(1.4));
+                }
+            }
+        }
+    }
+    &.hover-expand-effect {
+        &:after {
+            @include transition(all .95s ease-in-out);
+            background-color: rgba($black,0.05);
+            content: ".";
+            position: absolute;
+            left: 80px;
+            top: 0;
+            width: 0;
+            height: 100%;
+            color: transparent;
+        }
+        &:hover {
+            &:after {
+                width: 100%;
+            }
+        }
+    }
+}
+.info-box-2 {
+    @include transition(all .5s ease-in-out);
+    @include box-shadow(none);
+    height: 80px;
+    display: flex;
+    cursor: default;
+    background-color: $white;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid $grey-100;
+
+    &:hover{
+        box-shadow: 0 8px 10px 1px rgba($black,0.14), 0 3px 14px 2px rgba($black,0.12), 0 5px 5px -3px rgba($black,0.2);
+        transition: all 150ms linear;
+    }
+    .icon {
+        display: inline-block;
+        text-align: center;
+        width:70px;
+
+        i {
+            color: $white;
+            font-size:35px;
+            line-height: 80px;
+        }
+    }
+    .chart.chart-bar {
+        height: 100%;
+        line-height: 105px;
+
+        canvas {
+            vertical-align: baseline !important;
+        }
+    }
+    .chart.chart-pie {
+        height: 100%;
+        line-height: 123px;
+
+        canvas {
+            vertical-align: baseline !important;
+        }
+    }
+    .chart.chart-line {
+        height: 100%;
+        line-height: 115px;
+
+        canvas {
+            vertical-align: baseline !important;
+        }
+    }
+    .content {
+        display: inline-block;
+        padding: 7px 10px;
+
+        .text {
+            @extend .font-14;
+            margin: 5px 0;
+            color: $grey-800;
+        }
+
+        .number {
+            @extend .font-20;
+            @extend .m-t-0;
+            font-weight: $font-weight-400;
+            color: $grey-800;
+        }
+    }
+    &.hover-zoom-effect {
+        .icon {
+            overflow: hidden;
+    
+            i {
+                @include transition(all .3s ease);
+            }
+        }    
+        &:hover {
+            .icon {
+                i {
+                    opacity: 0.4;
+                    @include transform(rotate(-32deg) scale(1.4));
+                }
+            }
+        }
+    }    
+    &.hover-expand-effect {
+        &:after {
+            @include transition(all .9s ease-in-out);
+            background-color: rgba($black, 0.05);
+            content: ".";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            color: transparent;        
+        }    
+        &:hover {
+            &:after {
+                width: 100%;
+            }
+        }
+    }
+}
+.info-box-3 {
+    @include transition(all .5s ease-in-out);
+    @include box-shadow(none);
+    background-color: $white;
+    height: 80px;
+    display: flex;
+    cursor: default;    
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 1px solid $grey-100;
+
+    &:hover{
+        box-shadow: 0 8px 10px 1px rgba($black,0.14), 0 3px 14px 2px rgba($black,0.12), 0 5px 5px -3px rgba($black,0.2);
+        transition: all 150ms linear;
+    }
+    .icon {
+        @extend .align-center;
+        position: absolute;
+        right: 10px;
+        bottom: 2px;        
+
+        i {
+            color: rgba($black, 0.15);
+            font-size: 60px;
+        }
+    }
+    .chart {
+        margin-right: 5px;
+    }
+    .chart.chart-bar {
+        height: 100%;
+        line-height: 50px;
+
+        canvas {
+            vertical-align: baseline !important;
+        }
+    }
+    .chart.chart-pie {
+        height: 100%;
+        line-height: 34px;
+
+        canvas {
+            vertical-align: baseline !important;
+        }
+    }
+    .chart.chart-line {
+        height: 100%;
+        line-height: 40px;
+
+        canvas {
+            vertical-align: baseline !important;
+        }
+    }
+    .content {
+        display: inline-block;
+        padding: 7px 16px;
+
+        .text {
+            @extend .font-12;
+            color: $grey-800;
+            margin: 5px 0;
+        }
+
+        .number {
+            @extend .font-20;
+            @extend .m-t-0;
+            font-weight: $font-weight-400;
+            color: $grey-800;
+        }
+    }
+    &.hover-zoom-effect {
+        .icon {
+            i {
+                @include transition(all .3s ease);
+            }
+        }
+        &:hover {
+            .icon {
+                i {
+                    opacity: 0.4;
+                    @include transform(rotate(-32deg) scale(1.4));
+                }
+            }
+        }
+    }
+    &.hover-expand-effect {
+        &:after {
+            @include transition(all .9s ease-in-out);
+            background-color: rgba($black,0.05);
+            content: ".";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            color: transparent;        
+        }
+        &:hover {
+            &:after {
+                width: 100%;
+            }
+        }
+    }
+}
+.info-box-4 {
+    @include transition(all .5s ease-in-out);
+    @include box-shadow(none);
+    @include border-radius(3px);
+    background-color: $white;
+    height: 80px;
+    display: flex;
+    cursor: default;    
+    position: relative;
+    overflow: hidden;
+    border: 1px solid $grey-100;
+    margin-bottom: 30px;
+
+    &:hover{
+        transition: all 150ms linear;
+    }
+    .icon {
+        @extend .align-center;
+        position: absolute;
+        right: 20px;
+        top: 25px;        
+
+        i {
+            color: rgba($black,0.15);
+            font-size: 28px;
+        }
+    }
+    .chart {
+        margin-right: 5px;
+    }
+    .chart.chart-bar {
+        height: 100%;
+        line-height: 50px;
+
+        canvas {
+            vertical-align: baseline !important;
+        }
+    }
+    .chart.chart-pie {
+        height: 100%;
+        line-height: 34px;
+
+        canvas {
+            vertical-align: baseline !important;
+        }
+    }
+    .chart.chart-line {
+        height: 100%;
+        line-height: 40px;
+
+        canvas {
+            vertical-align: baseline !important;
+        }
+    }
+    .content {
+        display: inline-block;
+        padding: 7px 16px;
+
+        .text {
+            @extend .font-12;
+            margin:5px 0;
+            color: $grey-800;
+        }
+
+        .number {
+            font-weight: $font-weight-400;
+            @extend .font-20;
+            margin-top:0px;
+            color: $grey-800;
+        }
+    }
+    &.hover-zoom-effect {
+        .icon {
+            i {
+                @include transition(all .3s ease);
+            }
+        }
+        &:hover {
+            .icon {
+                i {
+                    opacity: 0.4;
+                    @include transform(rotate(-32deg) scale(1.4));
+                }
+            }
+        }
+    }
+    &.hover-expand-effect {
+        &:after {
+            @include transition(all .9s ease-in-out);
+            background-color: rgba($black,0.05);
+            content: ".";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            color: transparent;
+        }
+        &:hover {
+            &:after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@include max-screen($break-small - 1px) {
+  
+    .home{
+        .info-box-2{
+            margin-bottom:0;
+        }
+    }
+
+}

@@ -1,0 +1,13 @@
+﻿.thumbnail {
+    @include border-radius(0);
+
+    p:not(button) {
+        @extend .font-14;
+        color: $grey-500;        
+    }
+
+    h3 {
+        font-weight: $font-weight-700;
+        @extend .font-17;
+    }
+}

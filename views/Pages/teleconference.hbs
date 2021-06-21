@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Medic Media Teleconference</title>
+  <meta charset="utf-8" />
+  <meta name="author" content="RTC Labs" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="description" content="Video conference in WebRTC" />
+  <meta name="keywords" content="conference, webrtc, web, video, audio, calling, voip, rtc" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/fa.min.css">
+  <link rel="stylesheet" href="/css/toastr.min.css">
+  <link rel="stylesheet" href="/css/trip.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="manifest" href="manifest.json" />
+  <meta name="msapplication-TileColor" content="#fff" />
+  <meta name="msapplication-TileImage" content="/images/android-chrome-192x192.png" />
+  <meta name="theme-color" content="#000" />
+</head>
+<body>
+  <!-- dashboard section starts -->
+	<section class="dashboard-section">
+    <div id="permission"></div>
+		<div class="container">
+			<div class="row d-flex justify-content-center align-items-center">
+        <a class="logo" href=""><img src="/images/logo.png" alt="JupiterMeet" /></a>
+				<div class="col col-md-6 col-12 pos-relative">
+          <div class="left-center">
+            <p class="site-detail">Host <span class="highlight-text">video conference</span> your way.</p>
+          </div>
+				</div>
+				<div class="col col-md-6 col-12 pos-relative">
+          <div class="right-center">
+					<div class="entering-info">
+			          <h2 class="text-capitalize">
+			              Hey, <span id="username" data-toggle="tooltip" title="Special characters and spaces are not allowed" contenteditable="true" max="10"></span>!
+		            </h2>
+			          <form id="main-form">
+			            <div class="input-group mb-2">
+      						  <input type="text" class="form-control conference-id" id="conferenceId" aria-label="Conference ID" aria-describedby="initiate" required autofocus autocomplete="off" maxlength="10" pattern="^[a-zA-Z0-9]+$" title="Special characters and spaces are not allowed">
+                    <label class="form-control-placeholder" for="conferenceId">Conference ID</label>
+      						  <div class="input-group-append">
+      						    <button class="btn btn-outline-secondary" type="submit" id="initiate" title="Start the conference"><i class="fa fa-arrow-right"></i></button>
+      						  </div>
+      						</div>
+			            <div class="custom-control custom-checkbox" title="Check this box to mute the camera">
+                    <input type="checkbox" id="muteCamera">
+                    <label for="muteCamera">Mute Camera</label>
+			            </div>
+			          </form>
+                <button id="settings" class="btn btn-outline-secondary" title="Settings"><i class="fas fa-cog"></i></button>
+	          </div>
+          </div>
+	        </div>
+				</div>
+			</div>
+	</section>
+  <!-- dashboard section ends -->
+  <div class="conference-info">
+    <span id="conferenceIdInfo" class="text-center"></span>
+    <span id="timer" class="text-center"></span>
+  </div>
+
+  <!-- chat panel starts -->
+  <div class="chat-panel">
+    <div class="chat-box">
+      <div class="chat-header">
+        Chat
+        <i class="fas fa-times close-panel"></i>
+      </div>
+      <div class="chat-body">
+        <div class="empty-chat-body">
+          <img src="/images/chat.png" class="chat-icon-show" alt="Chat" />
+        </div>
+      </div>
+      <div class="chat-footer">
+        <form id="chatForm">
+          <div class="input-group">
+            <input
+              type="text"
+              id="messageInput"
+              class="form-control note-input"
+              placeholder="Type a message..."
+              autocomplete="off"
+              maxlength="250"
+            />
+            <div class="input-group-append">
+              <button
+                id="sendMessage"
+                class="btn btn-outline-secondary"
+                type="submit"
+                title="Send"
+              >
+                <i class="far fa-paper-plane"></i>
+              </button>
+              <button
+                id="selectFile"
+                class="btn btn-outline-secondary"
+                title="Attach File"
+              >
+                <i class="fas fa-paperclip"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        <input type="file" name="file" id="file" data-max="50" hidden />
+      </div>
+    </div>
+  </div>
+  <!-- chat panel ends -->
+  <!-- video section starts -->
+  <div class="container-fluid conference-section">
+    <div class="row">
+      <div id="videos">
+        <div class="videoContainer">
+          <img src="/images/conference-logo.png" class="conference-logo" alt="JupiterMeet" />
+          <video id="localVideo" autoplay playsinline muted></video>
+          <span class="local-user-name"></span>
+        </div>
+      </div>
+      <div id="fullscreen"></div>
+    </div>
+
+    <div class="conference-options">
+        <button class="btn conference-option" title="Chat" id="openChat">
+          <i class="far fa-comment-alt"></i>
+        </button>
+        <button class="btn conference-option" title="Add User" id="add">
+          <i class="fas fa-user-plus"></i>
+        </button>
+        <button class="btn conference-option" title="Mute/Unmute Mic" id="toggleMic">
+          <i class="fa fa-microphone-slash"></i>
+        </button>
+        <button class="btn btn-danger" title="Leave Conference" id="leave">
+          <i class="fas fa-phone"></i>
+        </button>
+        <button class="btn conference-option" title="On/Off Camera" id="toggleVideo">
+          <i class="fa fa-video-slash"></i>
+        </button>
+        <button class="btn conference-option" title="Rotate Camera" id="toggleCam">
+          <i class="fas fa-camera"></i>
+        </button>
+        <button class="btn conference-option" title="Start/Stop ScreenShare" id="screenShare">
+          <i class="fa fa-desktop"></i>
+        </button>
+    </div>
+  </div>
+  <!-- video section ends -->
+
+  <!-- preview popup modal starts -->
+  <div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="previewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="previewModalLabel">File Preview</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img id="previewImage" src="">
+          <p id="previewFilename"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" id="sendFile" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- preview popup modal ends -->
+
+  <!-- preview popup modal starts -->
+  <div class="modal fade" id="displayModal" tabindex="-1" role="dialog" aria-labelledby="displayModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="displayModalLabel">File Display</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img id="displayImage" src="">
+          <p id="displayFilename"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" id="downloadFile" class="btn btn-primary">Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- preview popup modal ends -->
+
+  <!-- settings popup modal starts -->
+  <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="settingsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="settingsModalLabel">Settings</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">Shortcut Key</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">C</th>
+                <td>Chat</td>
+              </tr>
+              <tr>
+                <th scope="row">F</th>
+                <td>Attach File</td>
+              </tr>
+              <tr>
+                <th scope="row">A</th>
+                <td>Mute/Unmute Audio</td>
+              </tr>
+              <tr>
+                <th scope="row">L</th>
+                <td>Leave Conference</td>
+              </tr>
+              <tr>
+                <th scope="row">V</th>
+                <td>On/Off Video</td>
+              </tr>
+              <tr>
+                <th scope="row">S</th>
+                <td>Screen Share</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- settings popup modal ends -->
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/socket.io.js"></script>
+  <script src="/js/toastr.min.js"></script>
+  <script src="/js/easytimer.min.js"></script>
+  <script src="/js/trip.min.js"></script>
+  <script src="/js/adapter.js"></script>
+  <script src="/js/siofu.min.js"></script>
+  <script src="/js/opentok-layout.min.js"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/main.js"></script>
+  <script>
+    //register the service worker for PWA
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js', {
+        scope: '.'
+      }).then(function(reg) {}).catch(function(err) {});
+    }
+  </script>
+</body>
+
+</html>

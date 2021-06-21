@@ -1,0 +1,160 @@
+.profile-page{
+    
+    .p-l-0.p-r-0{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }    
+    .profile-header{
+        @extend .align-center;
+        @extend .p-t-30;
+        @extend .p-b-30;
+        color: $white;
+        background: rgba(0, 0, 0, 0) url("../images/profile-bg.jpg") repeat scroll center center / cover ;        
+        position: relative;        
+        border-radius:3px 3px 0 0;
+            
+        .profile_info{
+            .profile-image{
+                img{
+                    @include border-radius(50%);
+                }
+            }            
+            .social-icon{
+                a{
+                    margin:0 5px;
+                    
+                    i{
+                        color:$white;
+                    }
+                }
+            }
+        }        
+    }
+    .profile-sub-header{
+        @extend .m-b-15;
+        min-height: 60px;
+        width: 100%;
+        
+        .box-list{
+            
+            ul {                
+                @extend .margin-0;
+                @extend .padding-0;
+                display: inline-table;
+                table-layout: fixed;
+                width: 100%;
+                background: $grey-100;
+                
+                li{
+                    border-right: 1px solid $grey-300;
+                    border-bottom:1px solid $grey-300;
+                    display: table-cell;
+                    list-style: outside none none;
+
+                    a{
+                        display: block;
+                        padding: 15px 0;
+                        color: $grey-800;
+                        
+                        &:hover{
+                            text-decoration:none;
+                            color:$white;
+                        }
+                        
+                        i{
+                            @extend .font-20;
+                        }   
+                        
+                        p{
+                            @extend .margin-0;
+                        }
+                    }
+                    &:last-child{
+                        border-right:none;
+                    }                   
+                }
+            }
+        }
+    }    
+    #mypost{
+        .mypost-form{
+            @extend .m-b-15;
+        }
+        .post-box{
+            .post-img{
+                @extend .m-b-15;
+                max-height:300px;
+                overflow:hidden;
+            }
+        }
+    }
+    #timeline{
+        .timeline{
+            @extend .font-14;
+            border-left: 1px solid $grey-300;            
+            position: relative;
+            
+            .border-info {
+                border-color:$brand-info;
+            }
+            .border-warning {
+                border-color:$brand-warning;
+            }
+            .border-danger {
+                border-color:$brand-danger;
+            }
+            
+            .timeline-item{
+                @extend .m-b-20;
+                padding-bottom: 1px;
+                position: relative;                
+                
+                &:after{
+                    @include border-radius(50%);
+                    background-color: $white;
+                    border-color: inherit;
+                    border-style: solid;
+                    border-width: 2px;                  
+                    content: "";
+                    height: 11px;
+                    left: 0;
+                    margin-left: -6px;
+                    position: absolute;
+                    width: 11px;
+                    bottom: auto;
+                    clear: both;
+                    top:4px;
+
+                }
+                
+                .item-content{
+                    @extend .m-t-0;
+                    margin-left: 24px;
+                    
+                    p{
+                        font-weight: $font-weight-400;
+                        color:$grey-800;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .profile-page{
+        .profile-sub-header{
+            .box-list{
+                li{
+                    a{
+                        padding: 20px 0 !important;
+                    }
+                    
+                    p{
+                        display:none;
+                    }
+                }
+            }
+        }
+    }
+}

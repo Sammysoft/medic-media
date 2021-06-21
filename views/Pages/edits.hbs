@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<title>Medic Media</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css">
+
+<!-- Custom Css -->
+<link rel="stylesheet" href="/assets/css/main.css"/>
+
+
+</head>
+<body class="theme-cyan authentication">
+<div class="container">
+    <div class="card-top"></div>
+    <div class="card">
+        <h1 class="title"><span>Medic Media</span>Edit {{#each Update}}{{this.username}}{{/each }}'<span class="msg">Record</span></h1>
+        <div class="body">
+            <form action="/reports{{#each Update}}/{{this._id}}"{{/each }} method="POST">
+                <div class="input-group icon before_span">
+                    <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
+                    <div class="form-line">
+                        <input type="hidden" name="_id" value={{#each Update}}"{{this._id}}"{{/each}}/>
+                    </div>
+                </div>
+            
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input type="text" name="date" class="form-control" placeholder="Enter today's Date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-line">
+                             <textarea name="body"  rows="4" class="form-control no-resize" placeholder="Write patient report"></textarea>
+                        </div>
+                    </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-raised g-bg-cyan waves-effect" value="Done"/>
+                </div>
+            </form>
+        </div>
+    </div>  
+</div>
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAGhDbUX2tkyjo-nHULOzBgg48Jq7H5nTQ",
+    authDomain: "medics-media.firebaseapp.com",
+    projectId: "medics-media",
+    storageBucket: "medics-media.appspot.com",
+    messagingSenderId: "938738973743",
+    appId: "1:938738973743:web:f918895d7aea7046859ada",
+    measurementId: "G-TMVX7RP0GW"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  function uploadImage(){
+      const ref = firebase.storage().ref();
+
+      const file = document.querySelector('#photo').files[0]
+
+      const name = new Date() + '-' + file.name
+
+      const metadata = {
+          contentType: file.type
+      }
+
+      const task = ref.child(name).put(file, metadata)
+      task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+            console.log(url)
+            alert('Image upload successful')
+            document.querySelector("#image").value = url
+           
+        })
+  }
+</script>

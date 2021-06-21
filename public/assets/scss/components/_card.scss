@@ -1,0 +1,166 @@
+﻿.card {
+    @include transition(all .3s ease-in-out);
+    @include box-shadow(none);
+    @include border-radius(3px);
+    background: $white;
+    min-height: 50px;
+    position: relative;
+    margin-bottom: 30px;
+    border: none;    
+   
+    .card-inside-title {
+        @extend .font-15;
+        @extend .m-b-15;
+        color: $black;
+        margin-top: 25px;
+        display: block;        
+
+        small {
+            @extend .m-t-5;
+            @extend .font-11;
+            color: $grey-500;
+            display: block;
+
+            a {
+                color: $grey-600;
+                font-weight: $font-weight-700;
+            }
+        }
+    }
+
+    .card-inside-title:first-child {
+        margin-top: 0;
+    }
+
+    .bg-red,
+    .bg-pink,
+    .bg-purple,
+    .bg-deep-purple,
+    .bg-indigo,
+    .bg-blue,
+    .bg-light-blue,
+    .bg-cyan,
+    .bg-teal,
+    .bg-green,
+    .bg-light-green,
+    .bg-lime,
+    .bg-yellow,
+    .bg-amber,
+    .bg-orange,
+    .bg-deep-orange,
+    .bg-brown,
+    .bg-grey,
+    .bg-blue-grey,
+    .bg-blush,
+    .bg-black {
+        border-bottom: none !important;
+        color: $white !important;
+
+        h2, small, .material-icons {
+            color: $white !important;
+        }
+
+        .badge {
+            background-color: $white;
+            color: $grey-800;
+        }
+    }
+
+    .header {        
+        @include border-radius(0);
+        @include box-shadow(none);
+        @extend .m-b-0;
+        color: $grey-800;
+        padding:20px;
+        position: relative;
+
+        .header-dropdown {
+            @extend .margin-0;
+            @extend .padding-0;
+            position: absolute;
+            top: 19px;
+            right: 10px;
+            list-style: none;
+            
+            a{
+                padding: 0 10px;
+                display: block;
+
+                &:hover{
+                    color: inherit;
+                    text-decoration: none;
+                }
+
+                &::after{
+                    display: none;
+                }
+            }
+
+            .dropdown-menu {
+                left: auto !important;
+                transform: none !important;
+                top: 100% !important;
+                right: 0;                
+
+                li {
+                    display: block !important;
+                    a{
+                        padding: 6px 10px;
+                    }
+                }
+            }
+
+            li {
+                display: inline-block;
+            }
+
+            i {
+                @include transition(all .5s ease-in-out);
+                @extend .font-20;                                
+                color: $grey-500;                
+
+                &:hover {
+                    color: $black;
+                }
+            }
+        }
+
+        h2 {            
+            @extend .font-14;
+            @extend .margin-0;
+            text-transform: uppercase;
+            font-weight: $font-weight-500;
+            color: $black;
+
+            small {                
+                @extend .font-12;
+                @extend .m-t-5;
+                color: $grey-500;
+                display: block;
+                line-height: 15px;
+                text-transform:capitalize;
+
+                a {
+                    font-weight: $font-weight-700;
+                    color: $grey-600;
+                }
+            }
+        }
+    }
+    .p-15{ padding:15px !important;}
+    .body {
+        @extend .font-14;
+        color: $grey-800;
+        font-weight: $font-weight-400;
+        padding: 20px;        
+
+        @for $i from 1 through 12 {
+            .col-xs-#{$i},
+            .col-sm-#{$i},
+            .col-md-#{$i},
+            .col-lg-#{$i} {
+                margin-bottom:0px;
+            }
+        }
+    }
+}

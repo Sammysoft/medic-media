@@ -1,0 +1,44 @@
+
+{{> nav-body}}
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>All Doctors</h2>
+            <small class="text-muted">Welcome to Medic Media</small>
+        </div>
+        <div class="row clearfix">
+            {{> message}}
+            {{#each Physician}}
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card verified">                            
+                            <div class="thumb-xl member-thumb">
+                                <img src="{{#each this}}{{this.imageurl}}{{/each }}" class="img-thumbnail rounded-circle" style="height:150px; width:150px;" alt="profile-image">                               
+                            </div>
+
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">Dr. {{#each this}}{{this.username}}{{/each }}</h4>
+                                <p class="text-muted"><span> <a href="javascript:void(0);" class="text-pink">{{#each this}}{{this.firstname}} {{this.lastname}}{{/each }}</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">{{#each this}}{{this.phonenumber}}{{/each }}</p>                           
+                            <a href="" class="btn btn-raised btn-sm">{{#each this}}{{this.specialty}}{{/each }}</a><br/><br/> {{#if Admins}}<a href={{#each this}}"/delete/{{this._id}}"{{/each }} onclick="return confirm('Are you sure to delete this record?...')" class="edit"><i class="zmdi zmdi-delete"></i></a>{{/if}}{{#if Clinics}}<a href={{#each this}}"/delete/{{this._id}}"{{/each }} onclick="return confirm('Are you sure to delete this record?...')" class="edit"><i class="zmdi zmdi-delete"></i></a>{{/if }}{{#if Physicians}}<a href={{#each this}}"/delete/{{this._id}}"{{/each }} onclick="return confirm('Are you sure to delete this record?...')" class="edit"><i class="zmdi zmdi-delete"></i></a>{{/if }}
+                            <ul class="social-links list-inline m-t-10">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+              {{/each }}
+           
+        {{!-- <div class="row clearfix">
+            <div class="col-sm-12 text-center">
+                <a href="/add-doctor" class="btn btn-raised g-bg-cyan">Add Doctor</a>
+            </div>
+        </div> --}}
+    </div>
+</section>

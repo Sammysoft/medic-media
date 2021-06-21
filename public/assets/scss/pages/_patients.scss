@@ -1,0 +1,45 @@
+﻿.patients{
+    .all-patients{
+        .m-b-0{
+            margin-bottom: 0 !important;
+        }        
+        .p-profile-pix{
+            display:inline-block;
+        }        
+        h5{
+            .edit{
+                float:right;
+            }
+        }
+    }
+}
+.profile-page{
+    #report{         
+        .progress{
+            height: 5px;
+        }
+        ul{
+            li:last-child{
+                .progress{
+                    @extend .m-b-0;
+                }
+            }
+        }        
+        .dis{
+            @extend .p-l-15;
+        }
+    }
+}
+.patients_status{
+    table{
+        white-space: nowrap;
+        tr{
+            td{
+                vertical-align: middle;
+            }
+        }
+    }
+    img{
+        width: 38px;
+    }
+}

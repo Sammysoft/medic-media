@@ -1,0 +1,41 @@
+{{> nav-body}}
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>All Appointments</h2>
+            <small class="text-muted">Welcome to Medic Media</small>
+        </div>
+        <div class="row clearfix">
+            <h6>Your Appointments</h6>
+           <table class="table table-responsive">
+            <thead>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>Phone Number</th>
+                <th>Name of Ailment</th>
+            </thead>
+            {{#each Admin}}
+         
+            <tbody>
+                {{#each this.appointment}}
+                
+                    <tr>
+                        <td>{{#each this}}{{this.firstname}}{{/each }}</td>
+                        <td>{{#each this}}{{this.lastname}}{{/each }}</td>
+                        <td>{{#each this}}{{this.phonenumber}}{{/each }}</td>
+                        <td>{{#each this}}{{this.nameofdoc}}{{/each }}</td>
+                    </tr>
+                    
+                {{/each }}
+            </tbody>
+       
+            {{/each }}
+        </table>
+        </div>
+              
+           
+        
+    </div>
+</section>

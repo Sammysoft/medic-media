@@ -1,0 +1,70 @@
+{{> nav-body}}
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>All Physicians</h2>
+            <small class="text-muted">Welcome to Medic Media</small>
+        </div>
+        <div class="row clearfix">
+            {{#each Physician}}
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card verified">                            
+                            <div class="thumb-xl member-thumb">
+                                <img src="{{#each this}}{{this.imageurl}}{{/each }}" class="img-thumbnail rounded-circle" alt="profile-image">                               
+                            </div>
+
+                            
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">Dr. {{#each this}}{{this.username}}{{/each }}</h4>
+                                <p class="text-muted"><span> <a href="javascript:void(0);" class="text-pink">{{#each this}}{{this.firstname}} {{this.lastname}}{{/each }}</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">{{#each this}}{{this.phonenumber}}{{/each }}
+                                <br/><a href="" class="btn btn-raised btn-sm">{{#each this}}{{this.specialty}}{{/each }}</a>
+                            </p>                           
+                            <br/>
+                           <form action="/appointment{{#each this}}/{{this._id}}"{{/each }} method="POST">
+                           <h6>Enter Appointment Info accordingly</h6>
+                               <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="nameofdoc" class="form-control" placeholder="Your Ailment">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="hidden" name="_id" value={{#each this}}"{{this._id}}"{{/each}}/>
+                                        <input type="text" name="firstname" class="form-control" placeholder="Enter your Firstname">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="lastname" class="form-control" placeholder="Enter your Lastname">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" name="phonenumber" class="form-control" placeholder="Your PhoneNo.">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                   
+                                        <input type="submit" value="Done" />
+                                    
+                                </div>
+                           </form>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+              {{/each }}
+
+
+</div>
+</div>
+</section>
+

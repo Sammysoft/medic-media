@@ -1,0 +1,232 @@
+{{> nav-body}}
+
+<section class="content profile-page">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-md-12 p-l-0 p-r-0">
+                <section class="boxs-simple">
+                    <div class="profile-header">
+                        <div class="profile_info">
+                            <div class="profile-image"> <img src="{{#each Profile}}{{this.imageurl}}{{/each }}" alt="" style="height: 250px; width: 250px;"> </div>
+                            <h4 class="mb-0"><strong>{{caption}}</strong> {{#each Profile}}{{this.username}}{{/each }}</h4>
+                            <span class="text-muted col-white">{{#each Profile}}{{this.specialty}}{{/each }}</span>
+                            <br/><br/><br/>
+                            <p class="social-icon">
+                                <a title="Twitter" href="javascript:void(0);"><i class="zmdi zmdi-twitter"></i></a>
+                                <a title="Facebook" href="javascript:void(0);"><i class="zmdi zmdi-facebook"></i></a>
+                                <a title="Google-plus" href="javascript:void(0);"><i class="zmdi zmdi-twitter"></i></a>
+                                <a title="Dribbble" href="javascript:void(0);"><i class="zmdi zmdi-dribbble"></i></a>
+                                <a title="Behance" href="javascript:void(0);"><i class="zmdi zmdi-behance"></i></a>
+                                <a title="Instagram" href="javascript:void(0);"><i class="zmdi zmdi-instagram "></i></a>
+                                <a title="Pinterest" href="javascript:void(0);"><i class="zmdi zmdi-pinterest "></i></a>
+                            </p>
+                        </div>
+                        {{> message}}
+                    </div>
+                    <div class="profile-sub-header">
+                        <div class="box-list">
+                            <ul class="text-center">
+                                <li> <a href="https://mail.google.com/mail/u/0/#inbox" target="blank" class=""><i class="zmdi zmdi-email"></i>
+                                    <p>My Inbox</p>
+                                    </a> </li>
+                              
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+       <form action="/update{{#each Admin}}/{{this._id}}"{{/each }} method="POST">
+             <div class="row clearfix">
+            <div class="col-lg-4 col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4>About Me</h4>
+                    </div>
+                    <div class="body">
+                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <textarea name="about"  rows="4" class="form-control no-resize" placeholder="About me">{{#each Profile}}{{this.about}}{{/each}}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                          
+                            <small>Motto: <cite title="Source Title">forever healthy...</cite></small> </blockquote>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="col-lg-8 col-md-12">
+                
+                <div class="card">
+                    <div class="body"> 
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#mypost">My Post</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#usersettings">Setting</a></li>
+                        </ul>
+                        
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane in active" id="mypost">
+                                <div class="wrap-reset">
+                                    <div class="mypost-form">
+                                        <div class="form-group">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="mypost-list">
+                                       
+                                        <hr>
+                                        <div class="post-box">
+                                           
+                                            <div>
+                                                <h5>Health is wealth</h5>
+                                                <p class="mb-0">Ever heard the popular saying “health is wealth”? This gives large meaning to our life, as health is considered the most valuable and precious for every individual. Good health means not only the absence of disease in the body but a complete physical, mental, social as well as spiritual well-being of an individual. </p>
+                                            </div>
+                                        </div>  
+                                        <hr>
+                                     </div>
+                                </div>
+                            </div> 
+                           
+                            <div role="tabpanel" class="tab-pane" id="usersettings">
+                               <div class="body">
+                                    <h2 class="card-inside-title">Security Settings</h2>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="hidden" name="_id" value={{#each Profile}}"{{this._id}}"{{/each }} />
+                                                    <input type="text" name="username" value="{{#each Profile}}{{this.username}}{{/each }}" class="form-control" placeholder="Username">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2 class="card-inside-title">Account Settings</h2>
+                                    <div class="row clearfix">
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input name="firstname" value="{{#each Profile}}{{this.firstname}}{{/each }}" type="text" class="form-control" placeholder="First Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input name="lastname" value="{{#each Profile}}{{this.lastname}}{{/each }}" type="text" class="form-control" placeholder="Last Name">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input name="specialty" value="{{#each Profile}}{{this.specialty}}{{/each }}" type="text" class="form-control" placeholder="Area of specialty">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input name="email" value="{{#each Profile}}{{this.email}}{{/each }}" type="text" class="form-control" placeholder="Email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                     <input type="hidden" name="imageurl" id="image" />
+                                                    <input name="phonenumber" value="{{#each Profile}}{{this.phonenumber}}{{/each }}" type="number" class="form-control" placeholder="Phone Number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="col-sm-12">
+                                            <button type="submit" class="btn btn-raised btn-success">Save Changes</button>
+                                        </div>
+                                    </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+       </form>
+
+        <div class="card">
+                    <div class="header">
+                        <h2>Change your Profile Picture</h2>
+                    </div>
+                    <div class="body">
+                         <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>
+            <h3>Drop files here or click to upload.</h3>
+        <div class="fallback">
+            <input name="file" id="photo" type="file" multiple />
+            <button onclick="uploadImage()">Upload</button>
+        </div>
+                    </div>
+                </div>
+       
+          
+                                     
+                                        
+    </div>
+</section>
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAGhDbUX2tkyjo-nHULOzBgg48Jq7H5nTQ",
+    authDomain: "medics-media.firebaseapp.com",
+    projectId: "medics-media",
+    storageBucket: "medics-media.appspot.com",
+    messagingSenderId: "938738973743",
+    appId: "1:938738973743:web:f918895d7aea7046859ada",
+    measurementId: "G-TMVX7RP0GW"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  function uploadImage(){
+      const ref = firebase.storage().ref();
+
+      const file = document.querySelector('#photo').files[0]
+
+      const name = new Date() + '-' + file.name
+
+      const metadata = {
+          contentType: file.type
+      }
+
+      const task = ref.child(name).put(file, metadata)
+      task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+            console.log(url)
+            alert('Image upload successful')
+            document.querySelector("#image").value = url
+           
+        })
+  }
+</script>

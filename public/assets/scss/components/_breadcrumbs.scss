@@ -1,0 +1,60 @@
+﻿.breadcrumb {
+    @include border-radius(0);
+    @extend .font-14;
+    @extend .m-b-10;
+    background-color: transparent;
+
+    li {
+        a {
+            color: $grey-800;
+            text-decoration: none;
+
+            .material-icons {
+                @extend .font-17;
+                position: relative;
+            }
+        }
+
+        .material-icons {
+            @extend .font-18;
+            position: relative;
+            top: 4px;
+        }
+    }
+
+    > li + li:before {
+        content: '>\00a0';
+    }
+}
+
+@each $key, $val in $colors {
+    .breadcrumb-col-#{$key} {
+        li {
+            a {
+                color: $val !important;
+                font-weight: $font-weight-700;
+            }
+        }
+    }
+
+    .breadcrumb-bg-#{$key} {
+        background-color: $val !important;
+
+        li {
+            a {
+                color: $white;
+                font-weight: $font-weight-700;
+
+                .material-icons {
+                    padding-bottom: 8px;
+                }
+            }
+
+            color: $white !important;
+        }
+
+        li + li:before {
+            color: $white;
+        }
+    }
+}

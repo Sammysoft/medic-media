@@ -1,0 +1,42 @@
+{{#if errors}}
+            {{#each errors}}
+           <div class="alert alert-warning animate__animated animate__headShake animate__infinite"><a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>
+                  {{this.msg}}
+                </strong>
+           </div>
+           {{/each}}
+{{/ if}}
+
+{{#if success_msg}}
+           <div class="alert alert-success animate__animated animate__headShake animate__infinite"><a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>
+                  {{success_msg}}
+                </strong>
+           </div>
+{{/if }}
+
+{{#if error_msg}}
+           <div class="alert alert-warning animate__animated animate__headShake animate__infinte"><a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>
+                  {{error_msg}}
+                </strong>
+           </div>
+{{/if }}
+
+
+{{#if error}}
+           <div class="alert alert-warning animate__animated animate__headShake animate__infinte"><a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>
+                  {{error}}
+                </strong>
+           </div>
+{{/if }}
+
+{{#if success}}
+           <div class="alert alert-success animate__animated animate__headShake animate__infinite"><a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>
+                  {{success}}
+                </strong>
+           </div>
+{{/if }}

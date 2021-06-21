@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<title>:: Swift - Hospital Admin ::</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css">
+
+<!-- Custom Css -->
+<link rel="stylesheet" href="/assets/css/main.css"/>
+
+</head>
+
+<body class="theme-cyan authentication">
+<div class="container">
+    <div class="card-top"></div>
+    <div class="card">
+        <h1 class="title"><span>Medic Media</span>Login <span class="msg">Sign in to start your session</span></h1>
+        <div class="body">
+            {{> message}}
+            <form action="/patients/login" method="POST">
+                <div class="input-group icon before_span">
+                    <span class="input-group-addon"> <i class="zmdi zmdi-account"></i> </span>
+                    <div class="form-line">
+                        <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                    </div>
+                </div>
+                <div class="input-group icon before_span">
+                    <span class="input-group-addon"> <i class="zmdi zmdi-lock"></i> </span>
+                    <div class="form-line">
+                        <input type="password" class="form-control" name="password" placeholder="Password" required>
+                    </div>
+                </div>
+                <div>
+                    <div class="">
+                        <input type="checkbox" name="" id="rememberme" class="filled-in chk-col-pink">
+                        <label for="rememberme">Remember Me</label>
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" class="btn btn-raised waves-effect g-bg-cyan" value="SIGN IN" />
+                        <a href="/patients/register" class="btn btn-raised waves-effect">Patients</a>
+                    </div>
+                    <div class="text-center"> <a href="forgot-password.html">Forgot Password?</a></div>
+                </div>
+            </form>
+        </div>
+    </div>    
+</div>
+<div class="theme-bg"></div>
+
+<!-- Jquery Core Js --> 
+<script src="/assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="/assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+
+<script src="/assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+</body>
+</html>

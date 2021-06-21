@@ -1,0 +1,64 @@
+{{> nav-body}}
+
+<section class="content patients">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>All Patients</h2>
+            <small class="text-muted">Welcome to Medic Media</small>
+        </div>
+         
+        <div class="row clearfix">
+             {{#each Patient}}
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                
+                <div class="card all-patients">
+                    <div class="body">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 text-center m-b-0">
+                                <a href="javascript:void(0);" class="p-profile-pix"><img src="{{#each this}}{{this.imageurl}}{{/each }}"  alt="user" class="img-thumbnail img-fluid"></a>
+                            </div>
+                            <div class="col-md-8 col-sm-8 m-b-0">
+                                <h5 class="m-b-0">{{#each this}}{{this.username}}{{/each }} <a href="/update{{#each this}}/{{this._id}}"{{/each }} class="edit"><i class="zmdi zmdi-edit"></i></a><br/><a href={{#each this}}"/delete/{{this._id}}"{{/each }} onclick="return confirm('Are you sure to delete this record?...')" class="edit"><i class="zmdi zmdi-delete"></i></a></h5> 
+                                <address class="m-b-0">
+                                   {{#each this}} {{this.hailment}}{{/each }}<br>
+                                    Phone:   {{#each this}}{{this.phonenumber}}{{/each }}
+                                </address>
+                            </div>
+                            <div class="card">
+                                
+                                 <div class="body">
+                                     <h6>Reports: </h6>
+                                    <table class="table table-responsive">
+                                        <thead>
+                                            <th>Date</th>
+                                            <th>Report_Body</th>
+                                        </thead>
+                                        {{#each this}}
+                                        <tbody>
+                                            {{#each this.comment}}
+                                            
+                                                <tr>
+                                                    <td>{{#each this}}{{this.date}}{{/each }}</td>
+                                                    <td>{{#each this}}{{this.body}}{{/each }}</td>
+                                                </tr>
+                                                
+                                          {{/each }}
+                                        </tbody>
+                                        {{/each}}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                          
+                </div>
+         
+            </div>
+
+            
+           {{/each }}
+        </div>
+         
+    </div>
+</section>
+
